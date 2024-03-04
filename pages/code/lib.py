@@ -120,7 +120,7 @@ def query_llm(prompt: str, model: str, email: str = "EMAIL", password: str = "PA
     #sign = Login(st.secrets[email], st.secrets[password])
     sign = Login(email, password)
     
-    cookies = sign.login(save_cookies=True)
+    cookies = sign.login(save_cookies=False)
     chatbot = hugchat.ChatBot(cookies=cookies.get_dict(),) 
     llm_list = {llm.name:idx for idx, llm in enumerate(chatbot.get_available_llm_models())}
     chatbot.switch_llm(llm_list[model])
