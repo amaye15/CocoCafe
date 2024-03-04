@@ -17,7 +17,9 @@ st.markdown(html_content, unsafe_allow_html=True)
 col1, col2 = st.columns(2)
 
 with col1:
+    st.subheader("Raw Report")
     get_raw_report()
 
 with col2:
+    st.subheader("Clean Report")
     get_clean_report()
