@@ -48,8 +48,9 @@ for idx, val in enumerate(data["Filter"].unique()):
         break
 
     vis_data = data[data["Filter"] == val]
+    st.subheader(f"{val}")
     # Create a color mapping for each country
-    fig = px.line(vis_data, x = "Year", y ="Value", color = "Area", title = val, height=700)
+    fig = px.line(vis_data, x = "Year", y ="Value", color = "Area", height=700)
 
     st.plotly_chart(fig, use_container_width = True)
 

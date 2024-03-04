@@ -31,7 +31,7 @@ tmp = df.drop(columns="Filter").groupby(by = ["Domain", "Area", "Element", "Item
 for area in tmp["Area"].unique():
     tmp2 = tmp[tmp["Area"] == area]
 
-
-    fig = px.bar(tmp2, x = "Year", y = "Value", color = "Item", title = f"{area} - Export Value After Tax", barmode='group')
+    st.subheader(f"{area} - Export Value After Tax")
+    fig = px.bar(tmp2, x = "Year", y = "Value", color = "Item", barmode='group')
 
     st.plotly_chart(fig, use_container_width = True)
