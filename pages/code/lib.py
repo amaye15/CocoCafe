@@ -8,7 +8,7 @@ import pytesseract
 from PIL import Image
 from hugchat import hugchat
 from hugchat.login import Login
-
+from pages.code.login import Login
 #from login import Login
 
 import pandas as pd
@@ -140,19 +140,6 @@ def query_llm(prompt: str, model: str, email: str = "EMAIL", password: str = "PA
                 pass
 
         llm_extracted_text = "{Response: " + "".join(llm_extracted_text) + " }"
-
-        # llm_extracted_text = list(llm_extracted_text)
-
-        # start_idx = 0
-        # end_idx = 0
-
-        # for idx, char in enumerate(llm_extracted_text):
-        #     if char == "{":
-        #         start_idx = idx
-        #     if char == "}":
-        #         end_idx = idx + 1
-
-        # llm_extracted_text = "".join(llm_extracted_text[start_idx:end_idx])
 
         json_text = json_repair.repair_json(llm_extracted_text, return_objects=True)
 
